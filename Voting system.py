@@ -17,11 +17,12 @@ loi_pop = loi_pol = np.random.randint
 
 """
 0 = Rien
-n>0 = Votant
+n>0 = Nombre de Votant
 -1 = Politicien
 """
 
 def generate_tensor_space(N_OPPINIONS,DX) :
+    """ Génère un tenseur de la forme (DX,DX,...,DX) avec N_OPPINIONS DX """
     rez = [0 for _ in range(DX)]
     for _ in range(N_OPPINIONS-1) :
         rez = [rez for _ in range(DX)]
@@ -29,6 +30,7 @@ def generate_tensor_space(N_OPPINIONS,DX) :
 
 
 def choose_population(TENSOR_SPACE, POP_SIZE,loi_pop) :
+    """ Place la population sur le tenseur selon la loi loi_pop """
     assert POP_SIZE < len(TENSOR_SPACE)**N_OPPINIONS
     rez = []
     for _ in range(POP_SIZE) :
@@ -39,6 +41,7 @@ def choose_population(TENSOR_SPACE, POP_SIZE,loi_pop) :
 
 
 def choose_politicians(N_POLITICIANS, TENSOR_SPACE,loi_pol) :
+    """ Place les politiciens sur le tenseur selon la loi loi_pol """
     assert N_POLITICIANS < len(TENSOR_SPACE)**N_OPPINIONS -POP_SIZE
     rez = []
     for _ in range(N_POLITICIANS) :
@@ -56,13 +59,37 @@ SHAPE = TENSOR_SPACE.shape
 POP = choose_population(TENSOR_SPACE, POP_SIZE,loi_pop)
 POLITICIANS = choose_politicians(N_POLITICIANS, TENSOR_SPACE,loi_pol)
 
-##
+## Différentes normes : les VOTANTS choisiront les POLITICIANS les plus proche selon le choix de la norme
 
 norm_1 = lambda p : np.sum(np.abs(p))
 norm_e = lambda p : np.linalg.norm(p)
 norm_inf = lambda p : np.abs(p).max()
 
-def voisins(p,r,norm = norm_e) : # Fonctionne mais lent...
+
+
+def pts_to_dte(point,shape) :
+    """ Transforme un point du tenseur en son rang après flatten """
+    rez = 0
+    for k in range(len(shape)) :
+        rez += np.prod(shape[k+1:])*point[k]
+    return int(rez)
+
+
+def dte_to_pts(k,shape) :
+    """ Récupère le rang du flatten et renvoie sa position dans le tenseur """
+    p = k
+    rez = []
+    for j in range(len(shape)) :
+        temp = int(np.prod(shape[(j+1):]))
+        rez.append(p // temp)
+        p %= temp
+    return np.array(rez)
+
+
+
+
+def voisins(p,r,norm = norm_e) : 
+    """ Renvoie les points de B(p,r) où B est la boule r*unité pour la norme norm (compléxité très haute) """
     flattenTS = TENSOR_SPACE.flatten()
     p = np.array(p)
     a = TENSOR_SPACE.shape
@@ -78,6 +105,7 @@ def voisins(p,r,norm = norm_e) : # Fonctionne mais lent...
 
 
 def exist(p,shape) :
+    """ Renvoie True si le point p est dans le tenseur """
     n = len(p)
     assert n == len(shape)
     for k in range(n) :
@@ -88,6 +116,7 @@ def exist(p,shape) :
 
 
 def voisins_norm_1(point,r) :
+    """ Renvoie les points de B(p,r) où B est la boule r*unité pour la norme 1 (compléxité moindre) """
 
     rez = []
 
@@ -123,26 +152,12 @@ def voisins_norm_1(point,r) :
 
 
 
-def dte_to_pts(k,shape) :
-    p = k
-    rez = []
-    for j in range(len(shape)) :
-        temp = int(np.prod(shape[(j+1):]))
-        rez.append(p // temp)
-        p %= temp
-    return np.array(rez)
 
 
-def pts_to_dte(point,shape) :
-    rez = 0
-    for k in range(len(shape)) :
-        rez += np.prod(shape[k+1:])*point[k]
-    return int(rez)
-
-""" transformer une liste flatten en un point d'un tensor """
 
 
 def closest(l, norm) :
+    """ Renvoie le plus petit élément de la liste l selon la norme norm """
     assert len(l) != 0
     val = l[0]
     for elem in l :
@@ -152,7 +167,7 @@ def closest(l, norm) :
 
 
 def barycentre(POP) :
-    """ Prend une population repéré par des tuples """
+    """ Prend une population repéré par des tuples et renvoie le barycentre de ces points """
     rez = np.zeros(shape = N_OPPINIONS, dtype = float)
     for ppl in POP :
         rez += np.array(ppl)*TENSOR_SPACE[ppl]
@@ -160,12 +175,12 @@ def barycentre(POP) :
 
 
 def arround(v) :
+    """ Arrondit les coordonnées du vecteur v """
     return np.array([round(x) for x in v])
 
 ## Méthodes de scrutin
 
-# 1: scrutin uninominal (actuel)
-
+# 1: scrutin uninominal (Présidentielle France)
 def vote_uninominal(norm = norm_e) :
     dico = {pol : 0 for pol in POLITICIANS}
 
@@ -174,32 +189,14 @@ def vote_uninominal(norm = norm_e) :
     return dico
 
 
-# 2: scrutin par aprobabiton
-def vote_support(r = DX//N_POLITICIANS) :
-    dico = {pol : 0 for pol in POLITICIANS}
 
-    for pol in POLITICIANS :
-        for neigh in voisins_norm_1(pol,r) :
-            dico[pol] += TENSOR_SPACE[tuple(neigh)]
-    return dico
-
-
-# 3: scrutin par classement
-def vote_ranking(norm = norm_e) :
-    dico = {pol : 0 for pol in POLITICIANS}
-
-    for ppl in POP :
-        val = sorted(POLITICIANS,key = lambda a : norm(np.array(a)-np.array(ppl)))
-        for k in range(len(val)) :
-            dico[val[k]] += k * TENSOR_SPACE[ppl]
-    return dico
-
-
-# 4: scrutin par notation
+# Quelques normes en plus
 norm_vote_abs = lambda p : 1-norm_inf(p)/DX
 norm_vote_euc= lambda p : 1-np.linalg.norm(p)/np.linalg.norm(SHAPE)
 norm_vote_1 = lambda p : 1-norm_1(p)/(len(p)*DX)
 
+
+# 2: scrutin par notation (Primaire populaires France)
 def vote_note(norm = norm_vote_1) :
     dico = {pol : 0 for pol in POLITICIANS}
 
@@ -210,7 +207,32 @@ def vote_note(norm = norm_vote_1) :
     return dico
 
 
-# scrutin alternatif (australie)
+
+# 3: scrutin par classement 
+def vote_ranking(norm = norm_e) :
+    dico = {pol : 0 for pol in POLITICIANS}
+
+    for ppl in POP :
+        val = sorted(POLITICIANS,key = lambda a : norm(np.array(a)-np.array(ppl)))
+        for k in range(len(val)) :
+            dico[val[k]] += k * TENSOR_SPACE[ppl]
+    return dico
+
+
+
+# 4: scrutin par aprobabiton (fav <3)
+def vote_support(r = DX//N_POLITICIANS) :
+    dico = {pol : 0 for pol in POLITICIANS}
+
+    for pol in POLITICIANS :
+        for neigh in voisins_norm_1(pol,r) :
+            dico[pol] += TENSOR_SPACE[tuple(neigh)]
+    return dico
+
+
+
+
+# 5: scrutin alternatif (Australie)
 
 def vote_alternatif(norm = norm_vote_euc) :
     dico = {pol : 0 for pol in POLITICIANS}
@@ -245,6 +267,12 @@ def vote_alternatif(norm = norm_vote_euc) :
 
 """
 Reste à tester :
+
+Retirer l'aspect Tenseur (garder pour affichage) et passer à une database panda avec personnes et positions seulement
+
+
+
+Remplir avec les données des politiciens actuels
 
 
 ...
@@ -306,6 +334,8 @@ else :
 
 
 ## Barycentre
+
+# Affiche aussi le barycentre des POLITICIANS 
 assert N_OPPINIONS < 3
 
 X_pop = [pop[0] for pop in POP]
