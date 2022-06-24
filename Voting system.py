@@ -11,13 +11,13 @@ X_LABEL_NAME = "Aime Immigration"
 Y_LABEL_NAME = "Aime Nucleaire"
 
 
-# loi(int, size = N_POLITICIANS)
+# loi(int, size = N_POLITICIANS) -> array.shape = size
 loi_pop = loi_pol = np.random.randint
 
 
 """
 0 = Rien
-n>0 = Nombre de Votant
+n > 0 = Nombre de Votant
 -1 = Politicien
 """
 
@@ -51,6 +51,17 @@ def choose_politicians(N_POLITICIANS, TENSOR_SPACE,loi_pol) :
         TENSOR_SPACE[a] = -1
         rez.append(a)
     return rez
+
+
+
+
+# Autre modélisation plus rapide
+
+import panda as pd
+POP2 = pd.DataFrame([loi_pop(DX, size = N_OPPINIONS) for _ in range(POP_SIZE)])
+POLITICIANS2 = pd.DataFrame([loi_pol(DX, size = N_OPPINIONS) for _ in range(POP_SIZE)])
+
+
 
 
 ## INITIALISATION
