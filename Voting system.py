@@ -57,7 +57,7 @@ def choose_politicians(N_POLITICIANS, TENSOR_SPACE,loi_pol) :
 
 # Autre modélisation plus rapide mais pas encore utilisée
 
-import panda as pd
+import pandas as pd
 POP2 = pd.DataFrame([loi_pop(DX, size = N_OPPINIONS) for _ in range(POP_SIZE)])
 POLITICIANS2 = pd.DataFrame([loi_pol(DX, size = N_OPPINIONS) for _ in range(POP_SIZE)])
 
