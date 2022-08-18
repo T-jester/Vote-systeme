@@ -1,10 +1,11 @@
 # Modélisation d'un vote et étude des modes de scrutins.
 
-N'hésitez pas à aller voir le [code](https://github.com/T-jester/Vote-systeme/blob/main/Voting%20system.py) sur mon GitHub.
 
 
 ### Contextualisation
-Tout d'habord commençons par une petite contextualisation. Lors des électuions de 2022 en France il y a eu une primaire populaire pour sélectionner un candidat représentant la gauche. Cette élection utilisait un vote par valeur, c'est à dire que chaque individus évaluait chaque candidat avec une appréciation allant de Insuffisant à Très Bien. Cette méthode étant différante de celle en vigueur pour les élections présidentielles, je me suis demandé si l'un d'eux était meilleur que l'autre.
+Lors des élections présidentielles de 2022 je me suis fait la réfléxion que la façon dont ont effectue le vote pouvait influencer le candidat sortant et, ayant le cas de Jospin en 2017 en tête, je me suis demandé si le scrutin uninominal à deux tours, celui actuellement en place, était vraiment le plus performant. En effet de nombreux autres pays utilisent des scrutins radicalement différents, sont-ils plus démocratiques ?
+
+Je me suis donc intéressé aux différents modes de scrutin afin d'essayer de les comparer et de voir si un conviendrait mieux à l'élection du président français.
 
 
 
