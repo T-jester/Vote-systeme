@@ -12,7 +12,7 @@ Je me suis donc intéressé aux différents modes de scrutin afin d'essayer de l
 ### Méthode
 Pour répondre à cette question j'ai d'abord du chercher une modélisation adéquate.
 
-L'idée est de représenter une idée par un "vecteur d'adhérence" où chaque individu de la population étudiée est placé sur ce vecteur en fonction de son degré d'approbation de cette idée. On réunit finalement tous ces vecteurs dans un tenseur et on obtient ainsi un échiquier politique multi-dimentionnel qui nous permet de modéliser à quel point un individu est d'accord avec un politicien en fonction de leur distance l'un à l'autre[^norme]. On peut ainsi choisir la personne pour laquelle il un individu votera lorsqu'on simulera un mode de scrutin.
+L'idée est de représenter une idée par un "vecteur d'adhérence" où chaque individu de la population étudiée est placé sur ce vecteur en fonction de son degré d'approbation de cette idée. On réunit finalement tous ces vecteurs dans un tenseur et on obtient ainsi un échiquier politique multi-dimentionnel qui nous permet de modéliser à quel point un individu est d'accord avec un politicien en fonction de leur distance l'un à l'autre[^1]. On peut ainsi choisir la personne pour laquelle il un individu votera lorsqu'on simulera un mode de scrutin.
 
 Afin d'obtenir une représentation réaliste j'ai décidé de me réstreindre aux élections présidentielles de 2022, j'ai donc placé les candidats de cette année dans le tenseur en fonction de leur programme politique.
 
@@ -21,8 +21,7 @@ Pour la répartition de la population sur le tenseur, un sondage tourne de sorte
 En implémentant différents modes de scrutin, on peut finalement les tester sur de larges échantillons de population et comparer les résultats facilement.
 
 
-[^norme] :
-    Je pense utiliser principalement la norme euclidienne bien que la norme 1 peut mériter qu'on s'y interesse aussi
+[^1] : Je pense utiliser principalement la norme euclidienne bien que la norme 1 peut mériter qu'on s'y interesse aussi
 ### Différents modes de scrutin utilisés 
 - scrutin uninominal à 1 et 2 tours (actuellement en place pour la présidentielle en France)
 
