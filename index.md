@@ -3,7 +3,7 @@
 
 
 ### Contextualisation
-Lors des élections présidentielles de 2022 je me suis fait la réfléxion que la façon dont ont effectue le vote pouvait influencer le candidat vainqueur. Ayant le cas de Lionel Jospin en 2017 en tête, je me suis demandé si le scrutin uninominal à deux tours, celui actuellement en place, était vraiment "le meilleur". <br>
+Lors des élections présidentielles de 2022 je me suis fait la réfléxion que la façon dont ont effectue le vote pouvait influencer le candidat vainqueur. Ayant le cas de Lionel Jospin en 2002 en tête, je me suis demandé si le scrutin uninominal à deux tours, celui actuellement en place, était vraiment "le meilleur". <br>
   Dans le monde, de nombreux autres scrutins très différents sont utilisés. S'ils s'avèrent proposer plus de propriétées recherchées pour un vote<sup>[1](#propvote)</sup>, les pays les utilisant sont-ils plus démocratiques ?
 
 Je me suis donc intéressé aux différents modes de scrutin afin d'essayer de les comparer et de voir si un conviendrait mieux à l'élection du président français.
