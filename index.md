@@ -4,7 +4,7 @@
 
 ### Contextualisation
 Lors des élections présidentielles de 2022 je me suis fait la réfléxion que la façon dont ont effectue le vote pouvait influencer le candidat vainqueur. Ayant le cas de Lionel Jospin en 2017 en tête, je me suis demandé si le scrutin uninominal à deux tours, celui actuellement en place, était vraiment "le meilleur". 
-  Dans le monde, de nombreux autres scrutins très différents sont utilisés. S'ils s'avèrent proposer des propriétées recherchées pour un vote<sup>[1](#propvote)</sup>, les pays les utilisant sont-ils plus démocratiques ?
+  Dans le monde, de nombreux autres scrutins très différents sont utilisés. S'ils s'avèrent proposer plus de propriétées recherchées pour un vote<sup>[1](#propvote)</sup>, les pays les utilisant sont-ils plus démocratiques ?
 
 Je me suis donc intéressé aux différents modes de scrutin afin d'essayer de les comparer et de voir si un conviendrait mieux à l'élection du président français.
 
@@ -13,17 +13,17 @@ Je me suis donc intéressé aux différents modes de scrutin afin d'essayer de l
 
 
 ### Méthode
-Pour répondre à cette question j'ai d'abord du chercher une modélisation adéquate.
+Pour répondre à cette question j'ai d'abord decidé de modéliser une élection de sorte à avoir un modèle prédictif qui nous permettra de construire notre intuition.
 
-L'idée est de représenter une idée par un "vecteur d'adhérence" où chaque individu de la population étudiée est placé sur ce vecteur en fonction de son degré d'approbation de cette idée. On réunit finalement tous ces vecteurs dans un tenseur et on obtient ainsi un échiquier politique multi-dimentionnel qui nous permet de modéliser à quel point un individu est d'accord avec un politicien en fonction de leur distance l'un à l'autre<sup>[2](#distance)</sup>. On peut ainsi choisir la personne pour laquelle il un individu votera lorsqu'on simulera un mode de scrutin.
+L'idée est de représenter une idée par un "vecteur d'adhérence" où chaque individu de la population étudiée est placé sur ce vecteur en fonction de son degré d'approbation à l'idée qu'il représente. On réunit finalement tous ces vecteurs dans un tenseur et on obtient ainsi un échiquier politique multi-dimentionnel qui nous permet de modéliser à quel point un individu est d'accord avec un politicien en fonction de leur distance l'un à l'autre<sup>[2](#distance)</sup>. On peut ainsi choisir la personne pour laquelle il un individu votera lorsqu'on simulera un mode de scrutin (on supposera qu'il n'y a pas de vote utile et que chaque candidat vote pour son candidat préféré, cette hypothèse sera remises en cause plus tard).
 
-Afin d'obtenir une représentation réaliste j'ai décidé de me réstreindre aux élections présidentielles de 2022, j'ai donc placé les candidats de cette année dans le tenseur en fonction de leur programme politique<sup>[3](#programme)</sup>.
+Afin d'obtenir une représentation encrée dans le réel j'ai décidé de me réstreindre aux élections présidentielles de 2022. J'ai donc placé les candidats de cette année dans le tenseur en fonction de leur programme politique<sup>[3](#programme)</sup>.
 
-Pour la répartition de la population sur le tenseur, un sondage tourne de sorte à toucher un échantillon aussi représentatif que possible de la population électorale.
+Pour la répartition de la population sur le tenseur, un sondage tourne de sorte à toucher un échantillon aussi représentatif que possible de la population électorale française.
 
-En implémentant différents modes de scrutin, on peut finalement les tester sur de larges échantillons de population et comparer les résultats facilement.
+En implémentant différents modes de scrutin, on peut finalement tester leur impact sur de larges échantillons de population et comparer les résultats facilement.
 
-
+La dernière partie a largement été prémâchée par de grands mathématiciens comme Condorcet. Notre but est de comparer objectivement (comprendre mathématiquement) les différents modes de scrutins. Pour cela on regardera différentes propriétés qui semblent importantes pour l'élection d'un président et on classera les modes de scrutins en fonction de s'ils vérifient la propriété ou non. On dira alors qu'un tel est le meilleur s'il en vérifie le plus (spoiler, celui actuellement en place est plutôt parmi les mauvais).
 
 
 
