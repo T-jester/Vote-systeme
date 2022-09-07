@@ -53,7 +53,8 @@ La dernière partie a largement été prémâchée par de grands mathématiciens
 - [ ] Obtenir la répartition de la population sur le tenseur (en cours)
 - [ ] Comparer les résultats obtenus
 - [ ] Tester la fiabilité du modèle
-
+- [ ] Sélectionner les différentes propriétés intéressantes dans le cadre d'une élection.
+- [ ] Vérifier si les modes de scrutins ont ou non ces propriétés et conclure :)
 
 
 
@@ -63,8 +64,8 @@ La dernière partie a largement été prémâchée par de grands mathématiciens
 
 ### Faiblesses du modèle
 - cela reste assez subjectif, j'ai choisi les questions des vecteurs d'approbations, j'ai choisi l'échelle, j'ai choisi la norme décidant de la distance d'un candidat à un électeur...
-- le modèle à des limites : il est difficile de quantifier avec les vecteurs d'approbations les idées nouvelles apportées par des candidats ingénieux
-- dans l'état actuel il n'est pas capable de modéliser le "vote utile" qui est un point important du choix d'un mode de scrutin
+- le modèle à des limites : il est difficile de quantifier avec les vecteurs d'approbations les idées nouvelles apportées par des candidats ingénieux.
+- dans l'état actuel il n'est pas capable de modéliser le "vote utile" qui est un point important du choix d'un mode de scrutin.
 
 
 
