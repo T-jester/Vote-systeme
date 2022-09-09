@@ -9,6 +9,24 @@ Lors des élections présidentielles de 2022 je me suis fait la réfléxion que 
 Je me suis donc intéressé aux différents modes de scrutin afin d'essayer de les comparer et de voir si un conviendrait mieux à l'élection du président français.
 
 
+<br>
+<br>
+<br>
+<br>
+ <sup>
+  <a name="propvote">1</a>: Par exemple : <br> - l'unanimité : si une majorité préfère un candidat il doit être élu <br>
+                                             - la non-dictature : le choix ne doit pas dépendre que d'un seul individu <br>
+                                             - l'indépendance des options non pertinentes : échanger l'ordre de 2 candidat ne doit pas changer la position finale d'un candidat dont l'ordre n'a pas été impacté . <br>
+  Le théorème d'Arrow stipule qu'il est impossible de réunir ces conditions avec un vote par classement.<br>
+ <br>
+ </sup>
+
+
+
+
+
+
+
 
 
 
@@ -24,6 +42,20 @@ Pour la répartition de la population sur le tenseur, un sondage tourne de sorte
 En implémentant différents modes de scrutin, on peut finalement tester leur impact sur de larges échantillons de population et comparer les résultats facilement.
 
 La dernière partie a largement été prémâchée par de grands mathématiciens comme Condorcet. Notre but est de comparer objectivement (comprendre mathématiquement) les différents modes de scrutins. Pour cela on regardera différentes propriétés qui semblent importantes pour l'élection d'un président et on classera les modes de scrutins en fonction de s'ils vérifient la propriété ou non. On dira alors qu'un tel est le meilleur s'il en vérifie le plus (spoiler, celui actuellement en place est plutôt parmi les mauvais).
+
+
+<br>
+<br>
+<br>
+<br>
+<sup>
+<a name="distance">2</a>: Je pense utiliser principalement la norme euclidienne bien que la norme 1 peut mériter qu'on s'y interesse.<br>
+<br>
+<a name="programme">3</a>: Je me suis aidé du site https://www.ifrap.org/comparateurs/presidentielle-2022
+<br>  
+</sup>
+ 
+
 
 
 
@@ -69,27 +101,6 @@ La dernière partie a largement été prémâchée par de grands mathématiciens
 
 
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-  <sup>
-  <a name="propvote">1</a>: Par exemple : <br> - l'unanimité : si une majorité préfère un candidat il doit être élu <br>
-                                             - la non-dictature : le choix ne doit pas dépendre que d'un seul individu <br>
-                                             - l'indépendance des options non pertinentes : échanger l'ordre de 2 candidat ne doit pas changer la position finale d'un candidat dont l'ordre n'a pas été impacté . <br>
-  Le théorème d'Arrow stipule qu'il est impossible de réunir ces conditions avec un vote par classement.<br>
- <br>
- 
-  <a name="distance">2</a>: Je pense utiliser principalement la norme euclidienne bien que la norme 1 peut mériter qu'on s'y interesse.<br>
-  
-  <br>
-  
-  <a name="programme">3</a>: Je me suis aidé du site https://www.ifrap.org/comparateurs/presidentielle-2022
-  </sup>
 
 
 
