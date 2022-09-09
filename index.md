@@ -4,7 +4,7 @@
 
 ### Contextualisation
 Lors des élections présidentielles de 2022 je me suis fait la réfléxion que la façon dont ont effectue le vote pouvait influencer le candidat vainqueur. Ayant le cas de Lionel Jospin en 2002 en tête, je me suis demandé si le scrutin uninominal à deux tours, celui actuellement en place, était vraiment "le meilleur". <br>
-  Dans le monde, de nombreux autres scrutins très différents sont utilisés. S'ils s'avèrent proposer plus de propriétées recherchées pour un vote<sup>[1](#propvote)</sup>, les pays les utilisant sont-ils plus démocratiques ?
+  Dans le monde, de nombreux autres scrutins très différents sont utilisés. S'ils s'avèrent proposer plus de propriétées recherchées pour un vote<sup>[1](#propvote)</sup><a name="retourpropvote"></a>, les pays les utilisant sont-ils plus démocratiques ?
 
 Je me suis donc intéressé aux différents modes de scrutin afin d'essayer de les comparer et de voir si un conviendrait mieux à l'élection du président français.
 
@@ -17,7 +17,8 @@ Je me suis donc intéressé aux différents modes de scrutin afin d'essayer de l
   <a name="propvote">1</a>: Par exemple : <br> - l'unanimité : si une majorité préfère un candidat il doit être élu <br>
                                              - la non-dictature : le choix ne doit pas dépendre que d'un seul individu <br>
                                              - l'indépendance des options non pertinentes : échanger l'ordre de 2 candidat ne doit pas changer la position finale d'un candidat dont l'ordre n'a pas été impacté . <br>
-  Le théorème d'Arrow stipule qu'il est impossible de réunir ces conditions avec un vote par classement.<br>
+  Le théorème d'Arrow stipule qu'il est impossible de réunir ces conditions avec un vote par classement.<sup>[↩](#retourpropvote)</sup>
+ <br>
  <br>
  </sup>
 
